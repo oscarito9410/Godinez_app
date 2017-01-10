@@ -5,6 +5,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
 
+    <!--Filtro-->
+    <string name="filtro_header">Filtro</string>
+    <string name="filtro_description">Configura ciertos parametros para econtrar un lugar para comer</string>
+    <string name="radio">Radio de búsqueda en metros</string>
+    <string name="calificacion">Calificación de fondas</string>
+    <string name="guardar">Guardar</string>
+
     <!--Navegacion menu-->
     <string name="inicio">Inicio</string>
     <string name="mostrar_lugares">Lugares</string>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    android:layout_width="250dp"
+    android:layout_height="60dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <ImageView
+        android:id="@+id/icon_info"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/tvTituloInfo"
+        android:layout_toRightOf="@+id/icon_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="TAMALES DOÑA JUANITA"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"></TextView>
+    <TextView
+        android:id="@+id/tvSubInfo"
+        android:layout_toRightOf="@+id/icon_info"
+        android:layout_below="@+id/tvTituloInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DIRECCION BATALLA DE CALPULAPAN LOTE 1989B"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+    <RatingBar
+        android:id="@+id/ratingInfo"
+        android:layout_toRightOf="@+id/icon_info"
+        android:layout_below="@+id/tvSubInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"  android:rating="4.0" android:stepSize="1" android:numStars="5"
+        style="@android:style/Widget.DeviceDefault.RatingBar.Small"></RatingBar>
+
+
+</RelativeLayout>
+
+</LinearLayout>

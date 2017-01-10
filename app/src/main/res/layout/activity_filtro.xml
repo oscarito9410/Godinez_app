@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_filtro"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.oscarito.godinez.Views.Filtro">
+
+
+        <ImageView
+            android:id="@+id/imageLogoFiltro"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tvFiltro"
+            android:layout_toRightOf="@+id/imageLogoFiltro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filtro"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <TextView
+            android:id="@+id/tvFiltroDetalle"
+            android:layout_toRightOf="@+id/imageLogoFiltro"
+            android:layout_below="@+id/tvFiltro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Configura ciertos parametros para econtrar un lugar para comer"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="15dp"
+        android:layout_below="@+id/tvFiltroDetalle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView android:text="Radio de búsqueda" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textAppearance="?android:textAppearanceMedium" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/transparent"/>
+
+        <SeekBar
+            android:id="@+id/seekRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:progress="80"  />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/transparent"/>
+
+        <TextView android:text="Calificación de fondas" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textAppearance="?android:textAppearanceMedium" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/transparent"/>
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stepSize="1"
+            android:numStars="5"
+            android:rating="3.5"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

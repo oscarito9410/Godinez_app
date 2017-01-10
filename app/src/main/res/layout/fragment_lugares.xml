@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageLogoDetalle"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/tvUbicate"
+        android:layout_toRightOf="@+id/imageLogoDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Ubícate!"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/tvEncuentra"
+        android:layout_toRightOf="@+id/imageLogoDetalle"
+        android:layout_below="@+id/tvUbicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Encuentra de forma más rápida lo que hay cerca de ti"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/tvEncuentra"
+        android:id="@+id/recyclerLugares"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progressLugar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cpv_animAutostart="true"
+        app:cpv_indeterminate="true" />
+
+
+
+
+</RelativeLayout>
+

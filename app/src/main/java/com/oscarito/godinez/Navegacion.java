@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.oscarito.godinez.Fragments.FragmentConfig;
 import com.oscarito.godinez.Fragments.FragmentInicio;
 import com.oscarito.godinez.Fragments.FragmentLugares;
 import com.oscarito.godinez.Helpers.Permisos;
@@ -34,8 +35,6 @@ public class Navegacion extends AppCompatActivity
         setContentView(R.layout.activity_navegacion);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        this.navegarFragmentos(R.id.nav_inicio);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -51,8 +50,17 @@ public class Navegacion extends AppCompatActivity
         //Verifica si el gps está abierto
         LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
         if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+
+            ((FragmentInicio)fragment).progressDialog.dismiss();
+
             Permisos.abrirGpsConfiguracion(this);
         }
+        this.navegarFragmentos(R.id.nav_inicio);
+
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
     }
 
     @Override
@@ -97,7 +105,7 @@ public class Navegacion extends AppCompatActivity
         int id = item.getItemId();
 
         switch (id){
-            case R.id.action_filtrar:
+            case R.id.action_buscar:
                     Intent i = new Intent(Navegacion.this, Filtro.class);
                     startActivity(i);
                 break;
@@ -131,6 +139,9 @@ public class Navegacion extends AppCompatActivity
                 break;
             case R.id.nav_favorito:
                 fragment=new FragmentInicio();
+                break;
+            case R.id.nav_config:
+                fragment=new FragmentConfig();
                 break;
 
         }

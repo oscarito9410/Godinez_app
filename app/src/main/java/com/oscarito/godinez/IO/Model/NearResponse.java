@@ -5,6 +5,12 @@ package com.oscarito.godinez.IO.Model;
  */
 public class NearResponse {
 
+        private int id;
+
+        public int getId() { return this.id; }
+
+        public void setId(int id) { this.id = id; }
+
         private String name;
 
         public String getName() { return this.name; }

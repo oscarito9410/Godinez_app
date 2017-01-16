@@ -13,10 +13,17 @@
             android:id="@+id/nav_favorito"
             android:icon="@drawable/ic_menu_favorito"
             android:title="@string/favoritos" />
+
+            <item
+        android:id="@+id/nav_config"
+        android:icon="@drawable/ic_menu_config"
+        android:title="@string/configuracion" />
+
         <item
             android:id="@+id/nav_acerca"
             android:icon="@drawable/ic_menu_acerca"
             android:title="@string/acerca" />
+
 
     </group>
 <!--

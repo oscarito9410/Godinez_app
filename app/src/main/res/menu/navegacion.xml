@@ -7,9 +7,9 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
-    <item android:id="@+id/action_filtrar"
+    <item android:id="@+id/action_buscar"
         android:title="@string/filtrar"
-        android:icon="@mipmap/ic_filter_list_white_24dp"
+        android:icon="@drawable/ic_magnify_white_24dp"
         app:showAsAction="always"/>
 
 </menu>

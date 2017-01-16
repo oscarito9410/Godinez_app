@@ -1,21 +1,11 @@
 package com.oscarito.godinez.Fragments;
-
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.test.suitebuilder.annotation.Suppress;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,15 +19,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.oscarito.godinez.Adapters.MapInfoWindowAdapter;
 import com.oscarito.godinez.Helpers.Permisos;
-import com.oscarito.godinez.IO.Model.Category;
 import com.oscarito.godinez.IO.Model.NearResponse;
 import com.oscarito.godinez.R;
 import com.oscarito.godinez.Views.Detalle;
@@ -50,7 +37,8 @@ public class FragmentInicio extends Fragment implements OnMapReadyCallback, Goog
     private FusedLocationProviderApi fusedLocationProviderApi;
     private GoogleApiClient googleApiClient;
     private LocationRequest locationRequest;
-    private  SupportMapFragment mapFragment;
+    private SupportMapFragment mapFragment;
+    public  ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -58,6 +46,11 @@ public class FragmentInicio extends Fragment implements OnMapReadyCallback, Goog
         View rootView = inflater.inflate(R.layout.fragment_inicio, container, false);
         mapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.mapFragment);
+        progressDialog=new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
         mapFragment.getView().setVisibility(View.GONE);
         mapFragment.getMapAsync(this);
         return rootView;
@@ -80,8 +73,8 @@ public class FragmentInicio extends Fragment implements OnMapReadyCallback, Goog
     private void getLocation() {
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(200);
-        locationRequest.setFastestInterval(100);
+        locationRequest.setInterval(60*1000); //Actualización cada minuto
+        //locationRequest.setFastestInterval(100);
         fusedLocationProviderApi = LocationServices.FusedLocationApi;
         googleApiClient = new GoogleApiClient.Builder(getContext())
                 .addApi(LocationServices.API)
@@ -91,6 +84,7 @@ public class FragmentInicio extends Fragment implements OnMapReadyCallback, Goog
         if (googleApiClient != null) {
             googleApiClient.connect();
         }
+
 
     }
     public   void obtenerEstablecimientos(){
@@ -112,6 +106,7 @@ public class FragmentInicio extends Fragment implements OnMapReadyCallback, Goog
                             MapInfoWindowAdapter adapter = new MapInfoWindowAdapter(customView);
                             mMap.setInfoWindowAdapter(adapter);
                         }
+
                         //Enviando información adicional al marcador
                         NearResponse respuesta=new NearResponse();
                         respuesta.setName("FONDA DOÑA CHONITA");
@@ -131,7 +126,8 @@ public class FragmentInicio extends Fragment implements OnMapReadyCallback, Goog
 
                                                                       }
                                                                   });
-                        mMap.moveCamera(CameraUpdateFactory.newLatLng(position));;
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
+                        progressDialog.dismiss();
                     }
 
 

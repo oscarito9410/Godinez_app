@@ -16,7 +16,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
    private  int tabs;
     public  PagerAdapter(FragmentManager fm,int tabs){
         super(fm);this.tabs=tabs;
-
     }
 
     @Override

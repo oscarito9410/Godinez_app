@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+
+    <TextView android:text="@string/higiene" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textAppearance="?android:textAppearanceMedium" />
+    <RatingBar
+        android:id="@+id/ratingHigiene"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:numStars="5"
+        android:rating="3.5"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        style="@style/Widget.AppCompat.RatingBar" />
+
+
+    <TextView android:text="@string/sabor" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textAppearance="?android:textAppearanceMedium" />
+    <RatingBar
+        android:id="@+id/ratingSabor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:numStars="5"
+        android:rating="3.5"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        style="@style/Widget.AppCompat.RatingBar" />
+
+
+    <TextView android:text="@string/rapidez" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textAppearance="?android:textAppearanceMedium" />
+    <RatingBar
+        android:id="@+id/ratingRapidez"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:numStars="5"
+        android:rating="3.5"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        style="@style/Widget.AppCompat.RatingBar" />
+
+
+    <TextView android:text="@string/precio" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textAppearance="?android:textAppearanceMedium" />
+    <RatingBar
+        android:id="@+id/ratingPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:numStars="5"
+        android:rating="3.5"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        style="@style/Widget.AppCompat.RatingBar" />
+
+</LinearLayout>

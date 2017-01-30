@@ -8,4 +8,21 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <!-- Tarjeta -->
+    <dimen name="tarjeta_foto_width">60dp</dimen>
+    <dimen name="tarjeta_foto_height">60dp</dimen>
+    <dimen name="tarjeta_repetidor_textSize">10sp</dimen>
+    <dimen name="tarjeta_repetidor_verticalPadding">5dp</dimen>
+    <dimen name="tarjeta_repetidor_horizontalPadding">40dp</dimen>
+    <dimen name="tarjeta_repetidor_translationX">-35dp</dimen>
+    <dimen name="tarjeta_repetidor_translationY">25dp</dimen>
+    <dimen name="card_padding">8dp</dimen>
+    <dimen name="card_content_padding">16dp</dimen>
+    <dimen name="tarjeta_cardCornerRadius">4dp</dimen>
+    <dimen name="tarjeta_cardElevation">4dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+    <dimen name="interlineado">8dp</dimen>
+
+
 </resources>

@@ -22,6 +22,7 @@ public class Permisos {
 
     public  static  final  int CODIGO_LOCATION=100;
 
+
     public  static void abrirGpsConfiguracion(final Activity mActivity){
 
             final AlertDialog.Builder builder =  new AlertDialog.Builder(mActivity);

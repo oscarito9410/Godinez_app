@@ -6,11 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.oscarito.godinez.IO.Model.NearResponse;
 
 import java.util.ArrayList;
 
@@ -32,7 +29,6 @@ public class DetalleInfoAdapter extends BaseAdapter {
         this.inflater = LayoutInflater.from(act);
         this.listEstablecimiento = listEstablecimiento;
     }
-
 
     @Override
     public int getCount() {

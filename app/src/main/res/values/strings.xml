@@ -5,8 +5,26 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
 
+    <string name="configuracion_ok">Configuración guardada correctamente</string>
 
-
+    <!--Comentarios-->
+    <string name="comentario">Escribir comentario...</string>
+    <string name="total_cmt">Total de comentarios</string>
+    <!--Búsqueda-->
+    <string name="buscando">Busca lugares cercanos a </string>
+    <!--Agregado a favoritos-->
+    <string name="agregado_fav">Agregado a favoritos correctamente</string>
+    <string name="agregado_fav_ant">Este establecimiento ya había sido agregado a favoritos</string>
+    <string name="no_fav">No has agregado favoritos</string>
+    <string name="eliminar_fav"> ¿Te gustaría eliminarlo de favoritos?</string>
+    <string name="eliminar_ok">Eliminado de favoritos correctamente</string>
+    <string name="eliminar_caption">Este establecimiento ya había sido agregado a favoritos</string>
+    <!--Dialogo calificación-->
+    <string name="higiene">Higiene</string>
+    <string name="sabor">Sabor</string>
+    <string name="ambiente">Ambiente</string>
+    <string name="rapidez">Rapidez</string>
+    <string  name="precio">Precio</string>
     <!--Filtro-->
     <string name="filtro_header">Filtro</string>
     <string name="filtro_description">Configura ciertos parametros para econtrar un lugar para comer</string>
@@ -20,6 +38,7 @@
     <string name="favoritos">Favoritos</string>
     <string name="acerca">Acerca</string>
     <string name="configuracion">configuracion</string>
+    <string name="categoria">Categoria</string>
 
     <!--Dialogo no gps-->
     <string name="titulo_gps">El gps no esta encendido</string>
@@ -47,5 +66,6 @@
     <string name="title_activity_maps">Mapa</string>
     <string name="title_activity_detalle">Detalle</string>
     <string name="title_activity_filtro">Filtro Busqueda</string>
+    <string name="title_activity_busqueda">Busqueda</string>
 
 </resources>

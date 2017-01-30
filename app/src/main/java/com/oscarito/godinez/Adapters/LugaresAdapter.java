@@ -9,15 +9,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.oscarito.godinez.IO.Model.NearResponse;
+import com.oscarito.godinez.Helpers.SettingsConstans;
+import com.oscarito.godinez.IO.Model.AroundResponse;
+import com.oscarito.godinez.IO.Model.DetailsResponse;
+import com.oscarito.godinez.IO.Model.ViewModel.Methods;
 import com.oscarito.godinez.R;
 import com.oscarito.godinez.Views.Detalle;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by oemy9 on 07/01/2017.
@@ -25,9 +31,9 @@ import java.util.ArrayList;
 
 public class LugaresAdapter extends RecyclerView.Adapter<LugaresAdapter.ViewHolderLugares> {
 
-    private  ArrayList<NearResponse>listEstablecimientos;
+    private  ArrayList<AroundResponse>listEstablecimientos;
     private  Context context;
-    public  LugaresAdapter(Context context, ArrayList<NearResponse>listEstablecimientos){
+    public  LugaresAdapter(Context context, ArrayList<AroundResponse>listEstablecimientos){
         this.listEstablecimientos=listEstablecimientos;
         this.context=context;
     }
@@ -41,11 +47,12 @@ public class LugaresAdapter extends RecyclerView.Adapter<LugaresAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolderLugares holder, int position) {
-        NearResponse item=this.listEstablecimientos.get(position);
+        AroundResponse item=this.listEstablecimientos.get(position);
         holder.tvTipo.setText(item.getCategory().getType());
         holder.tvNombreLugar.setText(item.getName());
         holder.ratingLugar.setRating((float)item.getRating());
-        Picasso.with(this.context).load(item.getLogo()).resize(100,100).into(holder.imgLugarItem);
+        Picasso.with(this.context).load("http://storedot.online/images/uploads/51970/0-Cotton-parka-with-faux-fur-trimmed-hood-gr-s.jpg").resize(100,100).into(holder.imgLugarItem);
+        holder.setContext(this.context);
     }
 
     @Override
@@ -58,8 +65,12 @@ public class LugaresAdapter extends RecyclerView.Adapter<LugaresAdapter.ViewHold
         TextView tvNombreLugar,tvTipo,tvCercania;
         ImageView imgLugarItem;
         RatingBar ratingLugar;
+        Context ctx;
 
-        public  ViewHolderLugares(final View itemView,final ArrayList<NearResponse>listEstablecimiento){
+        public  void setContext(Context ctx){
+            this.ctx=ctx;
+        }
+        public  ViewHolderLugares(final View itemView,final ArrayList<AroundResponse>listEstablecimiento){
             super(itemView);
             tvNombreLugar=(TextView)itemView.findViewById(R.id.tveNombreLugar);
             tvTipo=(TextView)itemView.findViewById(R.id.tvTipoLugar);
@@ -69,9 +80,9 @@ public class LugaresAdapter extends RecyclerView.Adapter<LugaresAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(itemView.getContext(),Detalle.class);
-                    NearResponse item=listEstablecimiento.get(getLayoutPosition());
-                    String info= new Gson().toJson(item);
-                    i.putExtra("json",info);
+                    AroundResponse item=listEstablecimiento.get(getLayoutPosition());
+                    //String info= new Gson().toJson(item);
+                    i.putExtra(SettingsConstans.ID_FONDA,item.getId());
                     itemView.getContext().startActivity(i);
 
                 }

@@ -7,8 +7,34 @@
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.oscarito.godinez.Views.Detalle">
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progressDetalle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cpv_animAutostart="true"
+        app:cpv_indeterminate="true" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabFavorito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            app:backgroundTint="@color/colorPrimaryDark"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@mipmap/ic_heart_white_24dp" />
+
     <ListView
         android:id="@+id/listViewContacto"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
+
+    </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>

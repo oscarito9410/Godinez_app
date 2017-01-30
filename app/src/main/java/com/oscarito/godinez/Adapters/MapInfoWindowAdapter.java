@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
 import com.google.gson.Gson;
-import com.oscarito.godinez.IO.Model.NearResponse;
+import com.oscarito.godinez.IO.Model.AroundResponse;
 import com.oscarito.godinez.R;
 
 /**
@@ -32,7 +32,7 @@ public class MapInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
     @Override
     public View getInfoContents(Marker marker){
-        NearResponse response=new Gson().fromJson(marker.getSnippet(),NearResponse.class);
+        AroundResponse response=new Gson().fromJson(marker.getSnippet(),AroundResponse.class);
         TextView tvTituloInfo=(TextView)contentView.findViewById(R.id.tvTituloInfo);
         TextView tvSubInfo=(TextView)contentView.findViewById(R.id.tvSubInfo);
         RatingBar ratingInfo=(RatingBar)contentView.findViewById(R.id.ratingInfo);

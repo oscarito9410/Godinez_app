@@ -4,13 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,12 +15,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.oscarito.godinez.Fragments.FragmentConfig;
+import com.oscarito.godinez.Fragments.FragmentFavoritos;
+import com.oscarito.godinez.Fragments.FragmentSettings;
 import com.oscarito.godinez.Fragments.FragmentInicio;
 import com.oscarito.godinez.Fragments.FragmentLugares;
 import com.oscarito.godinez.Helpers.Permisos;
-import com.oscarito.godinez.Views.Filtro;
+import com.oscarito.godinez.Helpers.SettingsConstans;
+import com.oscarito.godinez.Views.Busqueda;
 
 public class Navegacion extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,6 +34,8 @@ public class Navegacion extends AppCompatActivity
         setContentView(R.layout.activity_navegacion);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setElevation(0);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -50,12 +51,15 @@ public class Navegacion extends AppCompatActivity
         //Verifica si el gps está abierto
         LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
         if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-
-            ((FragmentInicio)fragment).progressDialog.dismiss();
-
             Permisos.abrirGpsConfiguracion(this);
         }
-        this.navegarFragmentos(R.id.nav_inicio);
+
+        if(getIntent().hasExtra(SettingsConstans.FROM_SEARCH)){
+            this.navegarFragmentos(R.id.nav_lugares);
+        }
+        else {
+            this.navegarFragmentos(R.id.nav_inicio);
+        }
 
     }
     @Override
@@ -103,16 +107,12 @@ public class Navegacion extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         switch (id){
             case R.id.action_buscar:
-                    Intent i = new Intent(Navegacion.this, Filtro.class);
-                    startActivity(i);
+                Intent i =new  Intent(Navegacion.this, Busqueda.class);
+                startActivity(i);
                 break;
         }
-
-
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -138,10 +138,10 @@ public class Navegacion extends AppCompatActivity
                 fragment=new FragmentLugares();
                 break;
             case R.id.nav_favorito:
-                fragment=new FragmentInicio();
+                fragment=new FragmentFavoritos();
                 break;
             case R.id.nav_config:
-                fragment=new FragmentConfig();
+                fragment=new FragmentSettings();
                 break;
 
         }

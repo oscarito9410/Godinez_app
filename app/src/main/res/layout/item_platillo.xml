@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardCornerRadius="@dimen/tarjeta_cardCornerRadius"
+    card_view:cardElevation="@dimen/tarjeta_cardElevation"
+    card_view:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/card_padding"
+        android:tag=""
+        android:id="@+id/btnDetalle">
+        <ImageView
+            android:id="@+id/imgFoto"
+            android:layout_width="@dimen/tarjeta_foto_height"
+            android:layout_height="@dimen/tarjeta_foto_height"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/platillo"
+            android:contentDescription="Imagen"
+            />
+
+        <TextView
+            android:id="@+id/tvNombrePlatiloItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/card_content_padding"
+            android:paddingRight="@dimen/card_content_padding"
+            tools:text="Título"
+            android:ellipsize="end"
+            android:singleLine="true"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imgFoto"
+            android:layout_toEndOf="@+id/imgFoto"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 50.00"
+            android:paddingTop="30dp"
+            android:paddingRight="50dp"
+            android:paddingLeft="@dimen/interlineado"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            android:id="@+id/tvPrecioPatilloItem"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imgFoto"
+            android:layout_toEndOf="@+id/imgFoto" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addProduct"
+            app:srcCompat="@drawable/ic_add"
+            android:paddingRight="@dimen/card_margin"
+            android:layout_centerVertical="true"
+            android:tag=""
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

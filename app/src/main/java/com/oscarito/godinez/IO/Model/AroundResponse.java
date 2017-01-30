@@ -3,7 +3,7 @@ package com.oscarito.godinez.IO.Model;
 /**
  * Created by oemy9 on 06/01/2017.
  */
-public class NearResponse {
+public class AroundResponse {
 
         private int id;
 
@@ -35,11 +35,12 @@ public class NearResponse {
 
         public void setAddress(String address) { this.address = address; }
 
-        private Category category;
 
-        public Category getCategory() { return this.category; }
+        private CategoryResponse category;
 
-        public void setCategory(Category category) { this.category = category; }
+        public CategoryResponse getCategory() { return this.category; }
+
+        public void setCategory(CategoryResponse category) { this.category = category; }
 
         private String logo;
 
